@@ -4,7 +4,7 @@
      "export":
         {
          "format":"json",
-         "target":"map.json"
+         "target":"..\/..\/..\/..\/arcadia\/textures\/map\/tilesets\/map.json"
         }
     },
  "height":64,
@@ -1443,14 +1443,17 @@
  "tileheight":16,
  "tilesets":[
         {
+         "columns":64,
          "firstgid":1,
          "source":"Dungeon_Tileset.tsx"
         }, 
         {
+         "columns":64,
          "firstgid":101,
          "source":"furniture.tsx"
         }, 
         {
+         "columns":64,
          "firstgid":335,
          "source":"SmallItems.tsx"
         }],
