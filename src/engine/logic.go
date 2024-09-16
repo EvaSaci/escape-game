@@ -78,10 +78,10 @@ func (e *Engine) CheckCollisions() {
 func (e *Engine) MonsterCollisions() {
 
 	for _, monster := range e.Monsters {
-		if monster.Position.X > e.Player.Position.X-20 &&
-			monster.Position.X < e.Player.Position.X+20 &&
-			monster.Position.Y > e.Player.Position.Y-20 &&
-			monster.Position.Y < e.Player.Position.Y+20 {
+		if monster.Position.X > e.Player.Position.X+20 &&
+			monster.Position.X < e.Player.Position.X-20 &&
+			monster.Position.Y > e.Player.Position.Y+20 &&
+			monster.Position.Y < e.Player.Position.Y-20 {
 
 			if monster.Name == "claude" {
 				e.NormalTalk(monster, "Bonjour")
