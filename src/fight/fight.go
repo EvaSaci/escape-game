@@ -1,31 +1,36 @@
 package fight
 
 import (
-	"main/src/entity"
+    "main/src/entity"
+	rl "github.com/gen2brain/raylib-go/raylib"
+	"fmt"
 )
 
 type fight int
 
 const (
-	PLAYER_TURN  fight = iota
-	MONSTER_TURN fight = iota
+    PlayerTurn  fight = iota
+    MonsterTurn fight = iota
 )
 
-func Fight(player entity.Player, monster entity.Monster) {
-
-	for { // Boucle infinie
-		// Check si le joueur ou le monstre est vaincu. Si c'est le cas, on sort de la boucle
-		if player.Health <= 0 {
-			player.IsAlive = false
-			break
-		} else if monster.Health <= 0 {
-			player.Inventory = append(player.Inventory, monster.Loot...)
-			player.Money += monster.Worth
-			break
+func Fight(player entity.Player, monster *entity.Monster) {
+	if player.Health <= 0 {
+		player.IsAlive = false
+		return
+	}else if monster.Health <= 0 {
+		player.Inventory = append(player.Inventory, monster.Loot...)
+		player.Money += monster.Worth
+		fmt.Println("--------------DEAD------------")
+		monster.IsAlive = false
+		monster.Health = 1
+		return
+	}else {
+		if rl.IsKeyPressed(rl.KeyE) { 
+			player.Attack(monster)
+			fmt.Println(monster.Health)
+			//monster.ToString()
 		}
-
-		player.Attack(&monster)
-		monster.Attack(&player)
 	}
+		
 }
 

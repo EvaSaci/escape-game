@@ -2,6 +2,8 @@ package engine
 
 import (
 	"main/src/entity"
+	"main/src/fight"
+
 
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
@@ -76,21 +78,20 @@ func (e *Engine) CheckCollisions() {
 }
 
 func (e *Engine) MonsterCollisions() {
+	
+	for i, monster := range e.Monsters {
+		if monster.Position.X > e.Player.Position.X-20 &&
+			monster.Position.X < e.Player.Position.X+20 &&
+			monster.Position.Y > e.Player.Position.Y-20 &&
+			monster.Position.Y < e.Player.Position.Y+20 {
 
-	for _, monster := range e.Monsters {
-		if monster.Position.X > e.Player.Position.X+20 &&
-			monster.Position.X < e.Player.Position.X-20 &&
-			monster.Position.Y > e.Player.Position.Y+20 &&
-			monster.Position.Y < e.Player.Position.Y-20 {
-
-			if monster.Name == "claude" {
 				e.NormalTalk(monster, "Bonjour")
-				if rl.IsKeyPressed(rl.KeyE) {
 					//lancer un combat ?
-				}
-			}
+				fight.Fight(e.Player, &e.Monsters[i])
+				
+
 		} else {
-			//...
+			e.NormalTalk(monster, "Au revoir")
 		}
 	}
 }
@@ -111,4 +112,18 @@ func (e *Engine) PauseLogic() {
 
 	//Musique
 	rl.UpdateMusicStream(e.Music)
+}
+func (e *Engine) UpdateMonsters() {
+	for i, monster := range e.Monsters {
+		if monster.IsAlive {
+			distance := rl.Vector2Distance(e.Player.Position, monster.Position)
+
+			if distance <= ChaseDistance {
+				direction := rl.Vector2Subtract(e.Player.Position, monster.Position)
+				direction = rl.Vector2Normalize(direction)
+				monster.Position = rl.Vector2Add(monster.Position, rl.Vector2Scale(direction, monster.Speed))
+				e.Monsters[i] = monster // met a jour le monstre dans la liste
+			}
+		}
+	}
 }

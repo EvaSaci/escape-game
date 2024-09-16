@@ -39,3 +39,7 @@ type Engine struct {
 	StateMenu   menu
 	StateEngine engine
 }
+
+const (
+	ChaseDistance = 100 // distance between
+)
