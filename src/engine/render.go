@@ -102,8 +102,8 @@ func (e *Engine) RenderHealth(){
 		if monster.IsAlive {
 			if monster.Health < 0 {
 				monster.Health = 0
-			} else if monster.Health > 100 {
-				monster.Health = 100
+			} else if monster.Health > 50 {
+				monster.Health = 50
 			}
 
 			rl.DrawRectangle(int32(monster.Position.X)+25, int32(monster.Position.Y)+30, int32(50), 5, rl.DarkBrown)

@@ -88,7 +88,7 @@ func (e *Engine) MonsterCollisions() {
 
 				e.NormalTalk(monster, "Tu veut m'attaquer ?")
 					//lancer un combat ?
-				fight.Fight(e.Player, &e.Monsters[i])
+				fight.Fight(&e.Player, &e.Monsters[i])
 				
 
 		} else {

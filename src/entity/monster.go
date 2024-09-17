@@ -22,10 +22,8 @@ type Monster struct {
 }
 
 func (m *Monster) Attack(p *Player) {
-	p.Health -= m.Damage
+	p.Health -= 3
 }
-
-
 
 func (m *Monster) ToString() {
 	fmt.Printf("Je suis un monstre avec %d points de vie\n", m.Health)
