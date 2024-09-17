@@ -141,7 +141,7 @@
         {
          "columns":12,
          "firstgid":1,
-         "image":"..\/..\/..\/..\/..\/Downloads\/basic_tileset_and_assets_standard\/assets_spritesheet_v2_free.png",
+         "image":"assets_spritesheet_v2_free.png",
          "imageheight":384,
          "imagewidth":384,
          "margin":0,
@@ -154,7 +154,7 @@
         {
          "columns":1,
          "firstgid":145,
-         "image":"..\/..\/..\/..\/..\/Downloads\/basic_tileset_and_assets_standard\/decorations.png",
+         "image":"decorations.png",
          "imageheight":96,
          "imagewidth":36,
          "margin":0,
@@ -167,7 +167,7 @@
         {
          "columns":4,
          "firstgid":148,
-         "image":"..\/..\/..\/..\/..\/Downloads\/basic_tileset_and_assets_standard\/dirtpath_tiles.png",
+         "image":"dirtpath_tiles.png",
          "imageheight":128,
          "imagewidth":128,
          "margin":0,
@@ -180,7 +180,7 @@
         {
          "columns":4,
          "firstgid":164,
-         "image":"..\/..\/..\/..\/..\/Downloads\/basic_tileset_and_assets_standard\/fence_tiles.png",
+         "image":"fence_tiles.png",
          "imageheight":128,
          "imagewidth":128,
          "margin":0,
@@ -193,7 +193,7 @@
         {
          "columns":2,
          "firstgid":180,
-         "image":"..\/..\/..\/..\/..\/Downloads\/basic_tileset_and_assets_standard\/ground_decorations.png",
+         "image":"ground_decorations.png",
          "imageheight":72,
          "imagewidth":72,
          "margin":0,
@@ -206,7 +206,7 @@
         {
          "columns":10,
          "firstgid":184,
-         "image":"..\/..\/..\/..\/..\/Downloads\/basic_tileset_and_assets_standard\/terrain_tiles_v2.png",
+         "image":"terrain_tiles_v2.png",
          "imageheight":512,
          "imagewidth":320,
          "margin":0,
@@ -219,7 +219,7 @@
         {
          "columns":15,
          "firstgid":344,
-         "image":"..\/..\/..\/..\/..\/Downloads\/basic_tileset_and_assets_standard\/water_and_island_tiles_v2.png",
+         "image":"water_and_island_tiles_v2.png",
          "imageheight":256,
          "imagewidth":480,
          "margin":0,
