@@ -75,6 +75,7 @@ func (e *Engine) InGameLogic() {
 func (e *Engine) CheckCollisions() {
 
 	e.MonsterCollisions()
+	e.UpdateMonsters()
 }
 
 func (e *Engine) MonsterCollisions() {
@@ -85,13 +86,12 @@ func (e *Engine) MonsterCollisions() {
 			monster.Position.Y > e.Player.Position.Y-20 &&
 			monster.Position.Y < e.Player.Position.Y+20 {
 
-				e.NormalTalk(monster, "Bonjour")
+				e.NormalTalk(monster, "Tu veut m'attaquer ?")
 					//lancer un combat ?
 				fight.Fight(e.Player, &e.Monsters[i])
 				
 
 		} else {
-			e.NormalTalk(monster, "Au revoir")
 		}
 	}
 }
@@ -114,15 +114,16 @@ func (e *Engine) PauseLogic() {
 	rl.UpdateMusicStream(e.Music)
 }
 func (e *Engine) UpdateMonsters() {
-	for i, monster := range e.Monsters {
-		if monster.IsAlive {
-			distance := rl.Vector2Distance(e.Player.Position, monster.Position)
+
+	for i := 0; i < len(e.Monsters); i++ { 
+
+		if e.Monsters[i].IsAlive {
+			distance := rl.Vector2Distance(e.Player.Position, e.Monsters[i].Position)
 
 			if distance <= ChaseDistance {
-				direction := rl.Vector2Subtract(e.Player.Position, monster.Position)
+				direction := rl.Vector2Subtract(e.Player.Position, e.Monsters[i].Position)
 				direction = rl.Vector2Normalize(direction)
-				monster.Position = rl.Vector2Add(monster.Position, rl.Vector2Scale(direction, monster.Speed))
-				e.Monsters[i] = monster // met a jour le monstre dans la liste
+				e.Monsters[i].Position = rl.Vector2Add(e.Monsters[i].Position, direction)
 			}
 		}
 	}
