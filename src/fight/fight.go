@@ -22,12 +22,13 @@ func Fight(player *entity.Player, monster *entity.Monster) {
 		player.Health = 0
 		player.Sprite = rl.LoadTexture("textures/entities/soldier/Soldier-Death.png")
 		return
-		
+
 	} else if monster.Health <= 0 {
 		player.Inventory = append(player.Inventory, monster.Loot...)
 		player.Money += monster.Worth
 		monster.IsAlive = false
 		monster.Health = 0
+		monster.Sprite = rl.LoadTexture("textures/entities/orc/Orc-Death.png")
 		return
 	} else {
 		if rl.IsKeyPressed(rl.KeyE) {
