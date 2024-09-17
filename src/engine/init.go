@@ -13,7 +13,7 @@ const (
 )
 
 func (e *Engine) Init() {
-	rl.InitWindow(ScreenWidth, ScreenHeight, "Arcadia")
+	rl.InitWindow(ScreenWidth, ScreenHeight, "Escape Raid")
 
 	// Initialisation des variables de l'engine
 	e.IsRunning = true
@@ -33,7 +33,7 @@ func (e *Engine) InitEntities() {
 		Position:  rl.Vector2{X: 300, Y: 300},
 		Health:    100,
 		Money:     1000,
-		Speed:     2,
+		Speed:     1.5,
 		Inventory: []item.Item{},
 
 		IsAlive: true,
@@ -42,10 +42,24 @@ func (e *Engine) InitEntities() {
 	}
 
 	e.Monsters = append(e.Monsters, entity.Monster{
-		Name:     "claude",
+		Name:     "Janne",
 		Position: rl.Vector2{X: 400, Y: 320},
 		Health:   50,
 		Damage:   5,
+		Speed:    0.9,
+		Loot:     []item.Item{},
+		Worth:    12,
+
+		IsAlive: true,
+		Sprite:  rl.LoadTexture("textures/entities/orc/Orc-Idle.png"),
+	})
+
+	e.Monsters = append(e.Monsters, entity.Monster{
+		Name:     "Yanniss",
+		Position: rl.Vector2{X: 450, Y: 400},
+		Health:   75,
+		Damage:   10,
+		Speed:    0.9,
 		Loot:     []item.Item{},
 		Worth:    12,
 

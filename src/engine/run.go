@@ -6,7 +6,7 @@ import (
 
 func (engine *Engine) Run() {
 	rl.SetTargetFPS(120)
-
+	
 	for engine.IsRunning {
 
 		rl.BeginDrawing()
@@ -14,6 +14,7 @@ func (engine *Engine) Run() {
 		switch engine.StateMenu {
 		case HOME:
 			engine.HomeRendering()
+			
 			engine.HomeLogic()
 
 		case SETTINGS:
@@ -30,7 +31,7 @@ func (engine *Engine) Run() {
 				engine.PauseLogic()
 
 			case GAMEOVER:
-				//...
+				engine.GAMEOVER()
 			}
 		}
 

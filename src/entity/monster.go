@@ -22,7 +22,7 @@ type Monster struct {
 }
 
 func (m *Monster) Attack(p *Player) {
-	p.Health -= 3
+	p.Health -= m.Damage
 }
 
 func (m *Monster) ToString() {

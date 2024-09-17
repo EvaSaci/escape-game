@@ -12,40 +12,51 @@ func (e *Engine) Rendering() {
 }
 
 func (e *Engine) HomeRendering() {
-	rl.ClearBackground(rl.Blue)
-
-	rl.DrawText("Home Menu", int32(rl.GetScreenWidth())/2-rl.MeasureText("Home Menu", 40)/2, int32(rl.GetScreenHeight())/2-150, 40, rl.RayWhite)
+	rl.ClearBackground(rl.Purple)
+	
+	rl.DrawText("Village Defend", int32(rl.GetScreenWidth())/2-rl.MeasureText("Village Defend", 40)/2, int32(rl.GetScreenHeight())/2-150, 40, rl.RayWhite)
 	rl.DrawText("[Enter] to Play", int32(rl.GetScreenWidth())/2-rl.MeasureText("[Enter] to Play", 20)/2, int32(rl.GetScreenHeight())/2, 20, rl.RayWhite)
 	rl.DrawText("[Esc] to Quit", int32(rl.GetScreenWidth())/2-rl.MeasureText("[Esc] to Quit", 20)/2, int32(rl.GetScreenHeight())/2+100, 20, rl.RayWhite)
 }
 
-func (e *Engine) InGameRendering() {
+func (e *Engine) InGameRendering() {		
 	rl.ClearBackground(rl.Gray)
 
 	rl.BeginMode2D(e.Camera) // On commence le rendu camera
-
+	
 	e.RenderMap()
-
+	
 	e.RenderMonsters()
 	e.RenderPlayer()
 	e.RenderHealth()
+	rl.DrawFPS(int32(rl.GetScreenWidth())/2-700, int32(rl.GetScreenHeight())/2-500)
+
+	if e.Player.Health <= 0 {
+		e.GAMEOVER()
+		return
+	}
 
 	rl.EndMode2D() // On finit le rendu camera
-
-	// Ecriture fixe (car pas affectée par le mode camera)
-	rl.DrawText("Playing", int32(rl.GetScreenWidth())/2-rl.MeasureText("Playing", 40)/2, int32(rl.GetScreenHeight())/2-350, 40, rl.RayWhite)
-	rl.DrawText("[P] or [Esc] to Pause", int32(rl.GetScreenWidth())/2-rl.MeasureText("[P] or [Esc] to Pause", 20)/2, int32(rl.GetScreenHeight())/2-300, 20, rl.RayWhite)
-
+	if e.Player.Health > 0 {
+		// Ecriture fixe (car pas affectée par le mode camera)
+		rl.DrawText("Playing", int32(rl.GetScreenWidth())/2-rl.MeasureText("Playing", 40)/2, int32(rl.GetScreenHeight())/2-350, 40, rl.RayWhite)
+		rl.DrawText("[P] or [Esc] to Pause", int32(rl.GetScreenWidth())/2-rl.MeasureText("[P] or [Esc] to Pause", 20)/2, int32(rl.GetScreenHeight())/2-300, 20, rl.RayWhite)
+	}
 }
 
 func (e *Engine) PauseRendering() {
 	rl.ClearBackground(rl.Red)
 
-	rl.DrawText("Paused", int32(rl.GetScreenWidth())/2-rl.MeasureText("Paused", 40)/2, int32(rl.GetScreenHeight())/2-150, 40, rl.RayWhite)
-	rl.DrawText("[P] or [Esc] to resume", int32(rl.GetScreenWidth())/2-rl.MeasureText("[P] or [Esc] to resume", 20)/2, int32(rl.GetScreenHeight())/2, 20, rl.RayWhite)
-	rl.DrawText("[Q]/[A] to Quit", int32(rl.GetScreenWidth())/2-rl.MeasureText("[Esc] to Quit", 20)/2, int32(rl.GetScreenHeight())/2+100, 20, rl.RayWhite)
+	rl.DrawText("Paused", int32(rl.GetScreenWidth())/2-rl.MeasureText("Paused", 40)/2, int32(rl.GetScreenHeight())/2-150, 40, rl.White)
+	rl.DrawText("[P] or [Esc] to resume", int32(rl.GetScreenWidth())/2-rl.MeasureText("[P] or [Esc] to resume", 20)/2, int32(rl.GetScreenHeight())/2, 20, rl.White)
+	rl.DrawText("[Q]/[A] to Quit", int32(rl.GetScreenWidth())/2-rl.MeasureText("[Esc] to Quit", 20)/2, int32(rl.GetScreenHeight())/2+100, 20, rl.White)
+}
 
-	rl.EndDrawing()
+func (e *Engine) GAMEOVER() {
+    rl.ClearBackground(rl.Red)
+
+	rl.DrawText("GAME OVER", int32(rl.GetScreenWidth())/2-rl.MeasureText("GAME OVER", 40)/2, int32(rl.GetScreenHeight())/2-150, 80, rl.RayWhite)
+	rl.DrawText("Appuis sur [Echap] + [A]/[Q]", int32(rl.GetScreenWidth())/2-rl.MeasureText("Appuis sur [Echap] + [A]/[Q]", 20)/2, int32(rl.GetScreenHeight())/2+100, 20, rl.White)
 }
 
 func (e *Engine) RenderPlayer() {
@@ -102,8 +113,8 @@ func (e *Engine) RenderHealth(){
 		if monster.IsAlive {
 			if monster.Health < 0 {
 				monster.Health = 0
-			} else if monster.Health > 50 {
-				monster.Health = 50
+			} else if monster.Health > 100 {
+				monster.Health = 100
 			}
 
 			rl.DrawRectangle(int32(monster.Position.X)+25, int32(monster.Position.Y)+30, int32(50), 5, rl.DarkBrown)

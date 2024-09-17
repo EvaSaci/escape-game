@@ -41,5 +41,5 @@ type Engine struct {
 }
 
 const (
-	ChaseDistance = 200 // distance between
+	ChaseDistance = 100 // distance between
 )

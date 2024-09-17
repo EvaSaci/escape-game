@@ -19,19 +19,21 @@ var lastTime float32 = 0
 func Fight(player *entity.Player, monster *entity.Monster) {
 	if player.Health <= 0 {
 		player.IsAlive = false
+		player.Health = 0
+		player.Sprite = rl.LoadTexture("textures/entities/soldier/Soldier-Death.png")
 		return
+		
 	} else if monster.Health <= 0 {
 		player.Inventory = append(player.Inventory, monster.Loot...)
 		player.Money += monster.Worth
-		fmt.Println("--------------DEAD------------")
 		monster.IsAlive = false
-		monster.Health = 1
+		monster.Health = 0
 		return
 	} else {
 		if rl.IsKeyPressed(rl.KeyE) {
 			player.Attack(monster)
-			fmt.Println(monster.Health)
-			//monster.ToString()   monster.Attack(player)
+			monster.Sprite = rl.LoadTexture("textures/entities/orc/Orc-Hurt.png")
+			monster.Sprite = rl.LoadTexture("textures/entities/orc/Orc-Idle.png")
 		}
 			currentTime := float32(rl.GetTime())
 

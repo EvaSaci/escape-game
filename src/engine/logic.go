@@ -81,10 +81,10 @@ func (e *Engine) CheckCollisions() {
 func (e *Engine) MonsterCollisions() {
 	
 	for i, monster := range e.Monsters {
-		if monster.Position.X > e.Player.Position.X-20 &&
-			monster.Position.X < e.Player.Position.X+20 &&
-			monster.Position.Y > e.Player.Position.Y-20 &&
-			monster.Position.Y < e.Player.Position.Y+20 {
+		if monster.Position.X > e.Player.Position.X-30 &&
+			monster.Position.X < e.Player.Position.X+30 &&
+			monster.Position.Y > e.Player.Position.Y-30 &&
+			monster.Position.Y < e.Player.Position.Y+30 {
 
 				e.NormalTalk(monster, "Tu veut m'attaquer ?")
 					//lancer un combat ?
