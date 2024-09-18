@@ -1,7 +1,6 @@
 package engine
 
 import (
-	"fmt"
 	"main/src/entity"
 	"main/src/fight"
 
@@ -74,7 +73,6 @@ func (e *Engine) InGameLogic() {
 }
 
 func (e *Engine) CheckCollisions() {
-	fmt.Println(e.Player.Position)
 	e.MonsterCollisions()
 	e.UpdateMonsters()
 }
@@ -82,10 +80,10 @@ func (e *Engine) CheckCollisions() {
 func (e *Engine) MonsterCollisions() {
 	
 	for i, monster := range e.Monsters {
-		if monster.Position.X > e.Player.Position.X-30 &&
-			monster.Position.X < e.Player.Position.X+30 &&
-			monster.Position.Y > e.Player.Position.Y-30 &&
-			monster.Position.Y < e.Player.Position.Y+30 {
+		if monster.Position.X > e.Player.Position.X-40 &&
+			monster.Position.X < e.Player.Position.X+40 &&
+			monster.Position.Y > e.Player.Position.Y-40 &&
+			monster.Position.Y < e.Player.Position.Y+40 {
 
 				e.NormalTalk(monster, "Tu veut m'attaquer ?")
 					//lancer un combat ?

@@ -20,7 +20,6 @@ func Fight(player *entity.Player, monster *entity.Monster) {
 	if player.Health <= 0 {
 		player.IsAlive = false
 		player.Health = 0
-		player.Sprite = rl.LoadTexture("textures/entities/soldier/Soldier-Death.png")
 		return
 
 	} else if monster.Health <= 0 {
@@ -28,8 +27,6 @@ func Fight(player *entity.Player, monster *entity.Monster) {
 		player.Money += monster.Worth
 		monster.IsAlive = false
 		monster.Health = 0
-		monster.Sprite = rl.LoadTexture("textures/entities/orc/Orc-Death.png")
-		return
 	} else {
 		if rl.IsKeyPressed(rl.KeyE) {
 			player.Attack(monster)

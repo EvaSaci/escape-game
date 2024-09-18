@@ -42,7 +42,7 @@ func (e *Engine) InitEntities() {
 	}
 
 	e.Monsters = append(e.Monsters, entity.Monster{
-		Name:     "J",
+		Name:     "mael",
 		Position: rl.Vector2{X: 130, Y: 800},
 		Health:   50,
 		Damage:   5,
