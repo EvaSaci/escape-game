@@ -25,6 +25,7 @@ const (
 type Engine struct {
 	Player   entity.Player
 	Monsters []entity.Monster
+	Shopkeeper entity.Shop
 
 	Music       rl.Music
 	MusicVolume float32

@@ -13,5 +13,6 @@ type Item struct {
 
 func (i *Item) ToString() {
 	fmt.Printf("Je suis un item qui vaut %d €\n", i.Price)
+	
 }
 

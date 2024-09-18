@@ -33,7 +33,6 @@ func Fight(player *entity.Player, monster *entity.Monster) {
 	} else {
 		if rl.IsKeyPressed(rl.KeyE) {
 			player.Attack(monster)
-			monster.Sprite = rl.LoadTexture("textures/entities/orc/Orc-Hurt.png")
 			monster.Sprite = rl.LoadTexture("textures/entities/orc/Orc-Idle.png")
 		}
 			currentTime := float32(rl.GetTime())

@@ -6,7 +6,9 @@ import (
 
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
-
+var (
+	BackGroudTexture rl.Texture2D
+)
 func (e *Engine) Rendering() {
 	rl.ClearBackground(rl.Blue)
 }
@@ -25,8 +27,10 @@ func (e *Engine) InGameRendering() {
 	rl.BeginMode2D(e.Camera) // On commence le rendu camera
 	
 	e.RenderMap()
+
 	
 	e.RenderMonsters()
+	e.RenderShopkeeper()
 	e.RenderPlayer()
 	e.RenderHealth()
 	rl.DrawFPS(int32(rl.GetScreenWidth())/2-700, int32(rl.GetScreenHeight())/2-500)
@@ -85,6 +89,17 @@ func (e *Engine) RenderMonsters() {
 	}
 }
 
+func (e *Engine) RenderShopkeeper() {
+	rl.DrawTexturePro(
+        e.Shopkeeper.Sprite,
+        rl.NewRectangle(0, 0, 16, 28),
+        rl.NewRectangle(e.Shopkeeper.Position.X, e.Shopkeeper.Position.Y, 32, 56),
+        rl.Vector2{X: 0, Y: 0},
+        0,
+        rl.White,
+    )
+}
+
 func (e *Engine) RenderDialog(m entity.Monster, sentence string) {
 	rl.BeginMode2D(e.Camera)
 
@@ -113,8 +128,8 @@ func (e *Engine) RenderHealth(){
 		if monster.IsAlive {
 			if monster.Health < 0 {
 				monster.Health = 0
-			} else if monster.Health > 100 {
-				monster.Health = 100
+			} else if monster.Health > 400 {
+				monster.Health = 400
 			}
 
 			rl.DrawRectangle(int32(monster.Position.X)+25, int32(monster.Position.Y)+30, int32(50), 5, rl.DarkBrown)

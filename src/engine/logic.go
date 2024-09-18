@@ -1,9 +1,9 @@
 package engine
 
 import (
+	"fmt"
 	"main/src/entity"
 	"main/src/fight"
-
 
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
@@ -54,6 +54,7 @@ func (e *Engine) InGameLogic() {
 	}
 
 	// Camera
+
 	e.Camera.Target = rl.Vector2{X: e.Player.Position.X + 70, Y: e.Player.Position.Y + 70}
 	e.Camera.Offset = rl.Vector2{X: ScreenWidth / 2, Y: ScreenHeight / 2}
 
@@ -73,7 +74,7 @@ func (e *Engine) InGameLogic() {
 }
 
 func (e *Engine) CheckCollisions() {
-
+	fmt.Println(e.Player.Position)
 	e.MonsterCollisions()
 	e.UpdateMonsters()
 }
