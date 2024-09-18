@@ -6,29 +6,30 @@ import (
 
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
+
 var (
 	BackGroudTexture rl.Texture2D
 )
+
 func (e *Engine) Rendering() {
 	rl.ClearBackground(rl.Blue)
 }
 
 func (e *Engine) HomeRendering() {
 	rl.ClearBackground(rl.Purple)
-	
+
 	rl.DrawText("Village Defend", int32(rl.GetScreenWidth())/2-rl.MeasureText("Village Defend", 40)/2, int32(rl.GetScreenHeight())/2-150, 40, rl.RayWhite)
 	rl.DrawText("[Enter] to Play", int32(rl.GetScreenWidth())/2-rl.MeasureText("[Enter] to Play", 20)/2, int32(rl.GetScreenHeight())/2, 20, rl.RayWhite)
 	rl.DrawText("[Esc] to Quit", int32(rl.GetScreenWidth())/2-rl.MeasureText("[Esc] to Quit", 20)/2, int32(rl.GetScreenHeight())/2+100, 20, rl.RayWhite)
 }
 
-func (e *Engine) InGameRendering() {		
+func (e *Engine) InGameRendering() {
 	rl.ClearBackground(rl.Gray)
 
 	rl.BeginMode2D(e.Camera) // On commence le rendu camera
-	
+
 	e.RenderMap()
 
-	
 	e.RenderMonsters()
 	e.RenderShopkeeper()
 	e.RenderPlayer()
@@ -57,7 +58,7 @@ func (e *Engine) PauseRendering() {
 }
 
 func (e *Engine) GAMEOVER() {
-    rl.ClearBackground(rl.Red)
+	rl.ClearBackground(rl.Red)
 
 	rl.DrawText("GAME OVER", int32(rl.GetScreenWidth())/2-rl.MeasureText("GAME OVER", 40)/2, int32(rl.GetScreenHeight())/2-150, 80, rl.RayWhite)
 	rl.DrawText("Appuis sur [Echap] + [A]/[Q]", int32(rl.GetScreenWidth())/2-rl.MeasureText("Appuis sur [Echap] + [A]/[Q]", 20)/2, int32(rl.GetScreenHeight())/2+100, 20, rl.White)
@@ -91,13 +92,13 @@ func (e *Engine) RenderMonsters() {
 
 func (e *Engine) RenderShopkeeper() {
 	rl.DrawTexturePro(
-        e.Shopkeeper.Sprite,
-        rl.NewRectangle(0, 0, 16, 28),
-        rl.NewRectangle(e.Shopkeeper.Position.X, e.Shopkeeper.Position.Y, 32, 56),
-        rl.Vector2{X: 0, Y: 0},
-        0,
-        rl.White,
-    )
+		e.Shopkeeper.Sprite,
+		rl.NewRectangle(0, 0, 16, 28),
+		rl.NewRectangle(e.Shopkeeper.Position.X, e.Shopkeeper.Position.Y, 32, 56),
+		rl.Vector2{X: 0, Y: 0},
+		0,
+		rl.White,
+	)
 }
 
 func (e *Engine) RenderDialog(m entity.Monster, sentence string) {
@@ -114,7 +115,7 @@ func (e *Engine) RenderDialog(m entity.Monster, sentence string) {
 	rl.EndMode2D()
 }
 
-func (e *Engine) RenderHealth(){
+func (e *Engine) RenderHealth() {
 	if e.Player.Health < 0 {
 		e.Player.Health = 0
 	} else if e.Player.Health > 100 {

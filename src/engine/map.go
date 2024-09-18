@@ -1,4 +1,4 @@
-	package engine
+package engine
 
 import (
 	"encoding/json"
@@ -102,7 +102,7 @@ func (e *Engine) RenderMap() {
 	column_counter := 0
 
 	for _, Layer := range e.MapJSON.Layers {
-		for _, tile := range Layer.Data {	
+		for _, tile := range Layer.Data {
 			if tile != 0 {
 				wantedTileSet := e.MapJSON.TileSets[0]
 				for _, TileSet := range e.MapJSON.TileSets { // Get correct texture
