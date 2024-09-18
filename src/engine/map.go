@@ -121,8 +121,8 @@ func (e *Engine) RenderMap() {
 					srcRectangle.Y = float32(index / wantedTileSet.Columns)
 				}
 
-				srcRectangle.X *= 32
-				srcRectangle.Y *= 32
+				srcRectangle.X *= 16
+				srcRectangle.Y *= 16
 
 				rl.DrawTexturePro(
 					e.Sprites[wantedTileSet.Name],
@@ -139,7 +139,7 @@ func (e *Engine) RenderMap() {
 			column_counter += 1
 			if column_counter >= e.MapJSON.Width {
 				destRectangle.X = 0
-				destRectangle.Y += 32
+				destRectangle.Y += 16
 				column_counter = 0
 			}
 
