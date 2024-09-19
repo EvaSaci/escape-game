@@ -37,6 +37,7 @@ type Engine struct {
 
 	MapJSON MapJSON
 
+	LoadingScreenGameOver rl.Texture2D
 	LoadingScreenHome rl.Texture2D
 	LoadingScreenPause rl.Texture2D
 

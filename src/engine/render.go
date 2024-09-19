@@ -62,9 +62,9 @@ func (e *Engine) PauseRendering() {
 }
 
 func (e *Engine) GAMEOVER() {
-	rl.ClearBackground(rl.Red)
+	rl.DrawTexture(e.LoadingScreenGameOver, 0, 0, rl.White)
 
-	rl.DrawText("GAME OVER", int32(rl.GetScreenWidth())/2-rl.MeasureText("GAME OVER", 40)/2, int32(rl.GetScreenHeight())/2-150, 80, rl.RayWhite)
+	rl.DrawText("GAME OVER", int32(rl.GetScreenWidth())/2-rl.MeasureText("GAME OVER", 40)/2-100, int32(rl.GetScreenHeight())/2-150, 80, rl.RayWhite)
 	rl.DrawText("Appuis sur [Echap] + [A]/[Q]", int32(rl.GetScreenWidth())/2-rl.MeasureText("Appuis sur [Echap] + [A]/[Q]", 20)/2, int32(rl.GetScreenHeight())/2+100, 20, rl.White)
 }
 
