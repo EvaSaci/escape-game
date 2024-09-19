@@ -11,8 +11,7 @@ type Item struct {
 	IsEquippable bool
 }
 
-func (i *Item) ToString() {
-	fmt.Printf("Je suis un item qui vaut %d €\n", i.Price)
-	
+func (i *Item) Potion() {
+	fmt.Printf("%s est utilisé pour soigner\n", i.Name,)
 }
 

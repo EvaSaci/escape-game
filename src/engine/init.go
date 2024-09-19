@@ -51,7 +51,7 @@ func (e *Engine) InitEntities() {
 		Worth:    12,
 
 		IsAlive: true,
-		Sprite:  rl.LoadTexture("textures/entities/orc/Orc-Idle.png"),
+		Sprite:  rl.LoadTexture("textures/entities/orc/mael.png"),
 	})
 
 	e.Monsters = append(e.Monsters, entity.Monster{
@@ -64,10 +64,10 @@ func (e *Engine) InitEntities() {
 		Worth:    12,
 
 		IsAlive: true,
-		Sprite:  rl.LoadTexture("textures/entities/orc/Orc-Idle.png"),
+		Sprite:  rl.LoadTexture("textures/entities/orc/eva.png"),
 	})
 	e.Monsters = append(e.Monsters, entity.Monster{
-		Name:     "oui",
+		Name:     "yasmine",
 		Position: rl.Vector2{X: 407, Y: 607},
 		Health:   50,
 		Damage:   5,
@@ -76,7 +76,7 @@ func (e *Engine) InitEntities() {
 		Worth:    12,
 
 		IsAlive: true,
-		Sprite:  rl.LoadTexture("textures/entities/orc/Orc-Idle.png"),
+		Sprite:  rl.LoadTexture("textures/entities/orc/yas.png"),
 	})
 	e.Monsters = append(e.Monsters, entity.Monster{
 		Name:     "Janne",
@@ -88,7 +88,7 @@ func (e *Engine) InitEntities() {
 		Worth:    12,
 
 		IsAlive: true,
-		Sprite:  rl.LoadTexture("textures/entities/orc/Orc-Idle.png"),
+		Sprite:  rl.LoadTexture("textures/entities/orc/janne.png"),
 	})
 	e.Monsters = append(e.Monsters, entity.Monster{
 		Name:     "Anderson",
@@ -113,7 +113,7 @@ func (e *Engine) InitEntities() {
 		Worth:    12,
 
 		IsAlive: true,
-		Sprite:  rl.LoadTexture("textures/entities/orc/Orc-Idle.png"),
+		Sprite:  rl.LoadTexture("textures/entities/orc/yanisse.png"),
 	})
 
 	e.Monsters = append(e.Monsters, entity.Monster{
@@ -126,7 +126,7 @@ func (e *Engine) InitEntities() {
 		Worth:    12,
 
 		IsAlive: true,
-		Sprite:  rl.LoadTexture("textures/entities/orc/Orc-Idle.png"),
+		Sprite:  rl.LoadTexture("textures/entities/orc/arnaud.png"),
 	})
 
 	e.Monsters = append(e.Monsters, entity.Monster{
@@ -139,7 +139,7 @@ func (e *Engine) InitEntities() {
 		Worth:    12,
 
 		IsAlive: true,
-		Sprite:  rl.LoadTexture("textures/entities/orc/Orc-Idle.png"),
+		Sprite:  rl.LoadTexture("textures/entities/orc/leo.png"),
 	})
 
 	e.Monsters = append(e.Monsters, entity.Monster{
@@ -152,7 +152,7 @@ func (e *Engine) InitEntities() {
 		Worth:    12,
 
 		IsAlive: true,
-		Sprite:  rl.LoadTexture("textures/entities/orc/Orc-Idle.png"),
+		Sprite:  rl.LoadTexture("textures/entities/orc/tom.png"),
 	})
 	e.Monsters = append(e.Monsters, entity.Monster{
 		Name:     "anthony",
@@ -164,7 +164,7 @@ func (e *Engine) InitEntities() {
 		Worth:    12,
 
 		IsAlive: true,
-		Sprite:  rl.LoadTexture("textures/entities/orc/Orc-Idle.png"),
+		Sprite:  rl.LoadTexture("textures/entities/orc/antho.png"),
 	})
 
 	e.Shopkeeper =	entity.Shop{

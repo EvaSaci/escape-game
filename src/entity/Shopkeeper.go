@@ -16,3 +16,16 @@ type Shop struct {
 	Sprite rl.Texture2D
 }
 
+func (s *Shop) Buy(item item.Item, player *Player) {
+	shop := s
+	if shop.Money >= item.Price {
+        shop.Money -= item.Price
+        player.Money += item.Price
+        player.Inventory = append(player.Inventory, item)
+    }
+}
+
+func (s *Shop) shopkeeper(p *Player) {
+	p.Health += 25
+	p.Money -= 50
+}
