@@ -1,6 +1,7 @@
 package engine
 
 import (
+	shop "main/src/Shop"
 	"main/src/entity"
 	"main/src/fight"
 
@@ -83,7 +84,7 @@ func (e *Engine) shopkeepercollision() {
 			e.Shopkeeper.Position.Y > e.Player.Position.Y-50 &&
 			e.Shopkeeper.Position.Y < e.Player.Position.Y+50 {
 				e.NormalTalke(e.Shopkeeper, "Je suis le shop du village!")
-					//lance le shop
+				shop.Shop(&e.Player, &e.Shopkeeper)
 		} else {
 		}
 	}

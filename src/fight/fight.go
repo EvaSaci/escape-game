@@ -30,7 +30,6 @@ func Fight(player *entity.Player, monster *entity.Monster) {
 			if rl.IsKeyPressed(rl.KeyE) {
 				player.Money += monster.Worth
 				monster.Worth = 0
-
 			}
 
 	} else {
