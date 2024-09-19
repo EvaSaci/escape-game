@@ -43,6 +43,14 @@ func (e *Engine) InGameRendering() {
 		e.GAMEOVER()
 		return
 	}
+		for _, monster := range e.Monsters {
+			if monster.Name == "Yanisse" {
+				if monster.Health <= 0 {
+					e.WIN()
+					return
+				}
+			}
+		}
 
 	rl.EndMode2D() // On finit le rendu camera
 	if e.Player.Health > 0 {
@@ -68,6 +76,12 @@ func (e *Engine) GAMEOVER() {
 	rl.DrawText("Appuis sur [Echap] + [A]/[Q]", int32(rl.GetScreenWidth())/2-rl.MeasureText("Appuis sur [Echap] + [A]/[Q]", 20)/2, int32(rl.GetScreenHeight())/2+100, 20, rl.White)
 }
 
+func (e *Engine) WIN() {
+	rl.ClearBackground(rl.Green)
+
+    rl.DrawText("Vous avez gagné!", int32(rl.GetScreenWidth())/2-rl.MeasureText("Vous avez gagné!", 40)/2, int32(rl.GetScreenHeight())/2-150, 80, rl.RayWhite)
+    rl.DrawText("Appuis sur [Echap] + [A]/[Q]", int32(rl.GetScreenWidth())/2-rl.MeasureText("Appuis sur [Echap] + [A]/[Q]", 20)/2, int32(rl.GetScreenHeight())/2+100, 20, rl.White)
+}
 func (e *Engine) RenderPlayer() {
 
 	rl.DrawTexturePro(
@@ -78,7 +92,6 @@ func (e *Engine) RenderPlayer() {
 		0,
 		rl.White,
 	)
-
 }
 
 func (e *Engine) RenderMonsters() {
@@ -93,8 +106,6 @@ func (e *Engine) RenderMonsters() {
 				rl.White,
 			)
 		}
-		
-		
 	}
 }
 
@@ -120,7 +131,6 @@ func (e *Engine) RenderDialog(m entity.Monster, sentence string) {
 		10,
 		rl.RayWhite,
 	)
-
 	rl.EndMode2D()
 }
 
@@ -134,7 +144,6 @@ func (e *Engine) RenderDialoge(s entity.Shop, sentence string) {
 		10,
 		rl.RayWhite,
 	)
-
 	rl.EndMode2D()
 }
 

@@ -32,6 +32,9 @@ func (engine *Engine) Run() {
 
 			case GAMEOVER:
 				engine.GAMEOVER()
+			
+			case WIN:
+				engine.WIN()
 			}
 		}
 

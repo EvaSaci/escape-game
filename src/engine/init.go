@@ -107,7 +107,7 @@ func (e *Engine) InitEntities() {
 		Name:     "Yanisse",
 		Position: rl.Vector2{X:	464, Y: 19},
 		Health:   300,
-		Damage:   10,
+		Damage:   15,
 		Speed:    0.9,
 		Loot:     []item.Item{},
 		Worth:    10000000000,
