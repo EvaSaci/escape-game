@@ -32,7 +32,7 @@ func (e *Engine) InitEntities() {
 	e.Player = entity.Player{
 		Position:  rl.Vector2{X: 800, Y: 850},
 		Health:    100,
-		Money:     1000,
+		Money:     100,
 		Speed:     1.5,
 		Inventory: []item.Item{},
 
@@ -48,7 +48,7 @@ func (e *Engine) InitEntities() {
 		Damage:   5,
 		Speed:    0.9,
 		Loot:     []item.Item{},
-		Worth:    12,
+		Worth:    25,
 
 		IsAlive: true,
 		Sprite:  rl.LoadTexture("textures/entities/orc/mael.png"),
@@ -61,7 +61,7 @@ func (e *Engine) InitEntities() {
 		Damage:   5,
 		Speed:    0.9,
 		Loot:     []item.Item{},
-		Worth:    12,
+		Worth:    25,
 
 		IsAlive: true,
 		Sprite:  rl.LoadTexture("textures/entities/orc/eva.png"),
@@ -73,7 +73,7 @@ func (e *Engine) InitEntities() {
 		Damage:   5,
 		Speed:    0.9,
 		Loot:     []item.Item{},
-		Worth:    12,
+		Worth:    25,
 
 		IsAlive: true,
 		Sprite:  rl.LoadTexture("textures/entities/orc/yas.png"),
@@ -85,7 +85,7 @@ func (e *Engine) InitEntities() {
 		Damage:   5,
 		Speed:    0.9,
 		Loot:     []item.Item{},
-		Worth:    12,
+		Worth:    25,
 
 		IsAlive: true,
 		Sprite:  rl.LoadTexture("textures/entities/orc/janne.png"),
@@ -97,7 +97,7 @@ func (e *Engine) InitEntities() {
 		Damage:   5,
 		Speed:    0.9,
 		Loot:     []item.Item{},
-		Worth:    12,
+		Worth:    100,
 
 		IsAlive: true,
 		Sprite:  rl.LoadTexture("textures/entities/orc/Anderson.png"),
@@ -107,10 +107,10 @@ func (e *Engine) InitEntities() {
 		Name:     "Yanisse",
 		Position: rl.Vector2{X:	464, Y: 19},
 		Health:   400,
-		Damage:   40,
+		Damage:   25,
 		Speed:    0.9,
 		Loot:     []item.Item{},
-		Worth:    12,
+		Worth:    10000000000,
 
 		IsAlive: true,
 		Sprite:  rl.LoadTexture("textures/entities/orc/yanisse.png"),
@@ -119,11 +119,11 @@ func (e *Engine) InitEntities() {
 	e.Monsters = append(e.Monsters, entity.Monster{
 		Name:     "Arnaud",
 		Position: rl.Vector2{X: 435, Y: 331},
-		Health:   75,
+		Health:   100,
 		Damage:   10,
 		Speed:    0.9,
 		Loot:     []item.Item{},
-		Worth:    12,
+		Worth:    100,
 
 		IsAlive: true,
 		Sprite:  rl.LoadTexture("textures/entities/orc/arnaud.png"),
@@ -132,11 +132,11 @@ func (e *Engine) InitEntities() {
 	e.Monsters = append(e.Monsters, entity.Monster{
 		Name:     "Léo",
 		Position: rl.Vector2{X: 21, Y: 152},
-		Health:   75,
+		Health:   150,
 		Damage:   10,
 		Speed:    0.9,
 		Loot:     []item.Item{},
-		Worth:    12,
+		Worth:    200,
 
 		IsAlive: true,
 		Sprite:  rl.LoadTexture("textures/entities/orc/leo.png"),
@@ -145,11 +145,11 @@ func (e *Engine) InitEntities() {
 	e.Monsters = append(e.Monsters, entity.Monster{
 		Name:     "Tom",
 		Position: rl.Vector2{X: 642, Y: 482},
-		Health:   75,
+		Health:   100,
 		Damage:   10,
 		Speed:    0.9,
 		Loot:     []item.Item{},
-		Worth:    12,
+		Worth:    100,
 
 		IsAlive: true,
 		Sprite:  rl.LoadTexture("textures/entities/orc/tom.png"),
@@ -157,11 +157,11 @@ func (e *Engine) InitEntities() {
 	e.Monsters = append(e.Monsters, entity.Monster{
 		Name:     "anthony",
 		Position: rl.Vector2{X: 50, Y: 301},
-		Health:   75,
-		Damage:   10,
+		Health:   200,
+		Damage:   20,
 		Speed:    0.9,
 		Loot:     []item.Item{},
-		Worth:    12,
+		Worth:    600,
 
 		IsAlive: true,
 		Sprite:  rl.LoadTexture("textures/entities/orc/antho.png"),

@@ -75,7 +75,19 @@ func (e *Engine) InGameLogic() {
 func (e *Engine) CheckCollisions() {
 	e.MonsterCollisions()
 	e.UpdateMonsters()
+	e.shopkeepercollision()
 }
+func (e *Engine) shopkeepercollision() {
+		if e.Shopkeeper.Position.X > e.Player.Position.X-50 &&
+			e.Shopkeeper.Position.X < e.Player.Position.X+50 &&
+			e.Shopkeeper.Position.Y > e.Player.Position.Y-50 &&
+			e.Shopkeeper.Position.Y < e.Player.Position.Y+50 {
+				e.NormalTalke(e.Shopkeeper, "Je suis le shop du village!")
+					//lance le shop
+		} else {
+		}
+	}
+
 
 func (e *Engine) MonsterCollisions() {
 	
@@ -84,19 +96,26 @@ func (e *Engine) MonsterCollisions() {
 			monster.Position.X < e.Player.Position.X+40 &&
 			monster.Position.Y > e.Player.Position.Y-40 &&
 			monster.Position.Y < e.Player.Position.Y+40 {
-
-				e.NormalTalk(monster, "Tu veut m'attaquer ?")
-					//lancer un combat ?
-				fight.Fight(&e.Player, &e.Monsters[i])
 				
 
+  						if monster.Health <= 0 {
+  							e.NormalTalk(monster, "Clique sur 'e' pour récupérer ta monnaie")	
+  						} else {
+							e.NormalTalk(monster, "Tu veut m'attaquer ?")
+						}
+					fight.Fight(&e.Player, &e.Monsters[i])
+				
+					
 		} else {
+			}
 		}
 	}
-}
 
 func (e *Engine) NormalTalk(m entity.Monster, sentence string) {
 	e.RenderDialog(m, sentence)
+}
+func (e *Engine) NormalTalke(s entity.Shop, sentence string) {
+	e.RenderDialoge(s, sentence)
 }
 
 func (e *Engine) PauseLogic() {

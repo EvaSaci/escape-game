@@ -21,6 +21,10 @@ func (e *Engine) HomeRendering() {
 	rl.DrawText("Village Defend", int32(rl.GetScreenWidth())/2-rl.MeasureText("Village Defend", 40)/2, int32(rl.GetScreenHeight())/2-150, 40, rl.RayWhite)
 	rl.DrawText("[Enter] to Play", int32(rl.GetScreenWidth())/2-rl.MeasureText("[Enter] to Play", 20)/2, int32(rl.GetScreenHeight())/2, 20, rl.RayWhite)
 	rl.DrawText("[Esc] to Quit", int32(rl.GetScreenWidth())/2-rl.MeasureText("[Esc] to Quit", 20)/2, int32(rl.GetScreenHeight())/2+100, 20, rl.RayWhite)
+
+	if rl.IsCursorOnScreen() {
+		rl.HideCursor()
+	}
 }
 
 func (e *Engine) InGameRendering() {
@@ -46,6 +50,8 @@ func (e *Engine) InGameRendering() {
 		// Ecriture fixe (car pas affectée par le mode camera)
 		rl.DrawText("Playing", int32(rl.GetScreenWidth())/2-rl.MeasureText("Playing", 40)/2, int32(rl.GetScreenHeight())/2-350, 40, rl.RayWhite)
 		rl.DrawText("[P] or [Esc] to Pause", int32(rl.GetScreenWidth())/2-rl.MeasureText("[P] or [Esc] to Pause", 20)/2, int32(rl.GetScreenHeight())/2-300, 20, rl.RayWhite)
+		rl.DrawText("Monnaie :", int32(rl.GetScreenWidth())/2-rl.MeasureText("Monnaie :", 20)/2-750, int32(rl.GetScreenHeight())/2-350, 35, rl.RayWhite)
+		rl.DrawText(strconv.Itoa(e.Player.Money), int32(rl.GetScreenWidth())/2+rl.MeasureText("Monnaie :", 20)/2-670, int32(rl.GetScreenHeight())/2-350, 35, rl.RayWhite)
 	}
 }
 
@@ -62,6 +68,10 @@ func (e *Engine) GAMEOVER() {
 
 	rl.DrawText("GAME OVER", int32(rl.GetScreenWidth())/2-rl.MeasureText("GAME OVER", 40)/2, int32(rl.GetScreenHeight())/2-150, 80, rl.RayWhite)
 	rl.DrawText("Appuis sur [Echap] + [A]/[Q]", int32(rl.GetScreenWidth())/2-rl.MeasureText("Appuis sur [Echap] + [A]/[Q]", 20)/2, int32(rl.GetScreenHeight())/2+100, 20, rl.White)
+}
+
+func (e *Engine) OverRun() {
+	
 }
 
 func (e *Engine) RenderPlayer() {
@@ -86,7 +96,9 @@ func (e *Engine) RenderMonsters() {
 				rl.Vector2{X: 0, Y: 0},
 				0,
 				rl.White,
-			)		
+			)
+		
+		
 	}
 }
 
@@ -116,6 +128,20 @@ func (e *Engine) RenderDialog(m entity.Monster, sentence string) {
 	rl.EndMode2D()
 }
 
+func (e *Engine) RenderDialoge(s entity.Shop, sentence string) {
+	rl.BeginMode2D(e.Camera)
+
+	rl.DrawText(
+		sentence,
+		int32(s.Position.X)-20,
+		int32(s.Position.Y),
+		10,
+		rl.RayWhite,
+	)
+
+	rl.EndMode2D()
+}
+
 func (e *Engine) RenderHealth() {
 	if e.Player.Health < 0 {
 		e.Player.Health = 0
@@ -133,6 +159,7 @@ func (e *Engine) RenderHealth() {
 			} else if monster.Health > 400 {
 				monster.Health = 400
 			}
+			
 
 			rl.DrawRectangle(int32(monster.Position.X)+25, int32(monster.Position.Y)+30, int32(50), 5, rl.DarkBrown)
 			rl.DrawText(strconv.Itoa(monster.Health), int32(monster.Position.X)+25, int32(monster.Position.Y)+35, int32(3), rl.White)

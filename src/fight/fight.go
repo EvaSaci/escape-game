@@ -17,6 +17,7 @@ const (
 var lastTime float32 = 0
 
 func Fight(player *entity.Player, monster *entity.Monster) {
+
 	if player.Health <= 0 {
 		player.IsAlive = false
 		player.Health = 0
@@ -24,9 +25,14 @@ func Fight(player *entity.Player, monster *entity.Monster) {
 
 	} else if monster.Health <= 0 {
 		player.Inventory = append(player.Inventory, monster.Loot...)
-		player.Money += monster.Worth
 		monster.IsAlive = false
 		monster.Health = 0
+			if rl.IsKeyPressed(rl.KeyE) {
+				player.Money += monster.Worth
+				monster.Worth = 0
+
+			}
+
 	} else {
 		if rl.IsKeyPressed(rl.KeyE) {
 			player.Attack(monster)

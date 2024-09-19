@@ -6,12 +6,8 @@ import (
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
 func shop(player *entity.Player, s *entity.Shop) {
-	if rl.IsKeyPressed(rl.KeyE) {
-		player.Health += 25
-		player.Money -= 50
-		fmt.Println("Tu vient de te heal 25 PV")
-    } else {
-		fmt.Println("Tu n'a pas l'argent!")
-
-	}
+	if rl.IsKeyPressed(keyE)
+		entity.Player.Money -= 50
+		s.Inventory = append(s.Inventory, item.Item{Name: "Potion", Price: 25})
+		entity.Player.Health += 25
 }
