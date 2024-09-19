@@ -161,7 +161,7 @@ func (e *Engine) InitEntities() {
 		Damage:   9,
 		Speed:    0.9,
 		Loot:     []item.Item{},
-		Worth:    600,
+		Worth:    200,
 
 		IsAlive: true,
 		Sprite:  rl.LoadTexture("textures/entities/orc/antho.png"),
