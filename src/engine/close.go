@@ -10,5 +10,4 @@ func (e *Engine) Close() {
 	rl.CloseAudioDevice()
 	rl.CloseWindow()
 	os.Exit(0)
-
 }

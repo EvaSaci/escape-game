@@ -43,14 +43,14 @@ func (e *Engine) InGameRendering() {
 		e.GAMEOVER()
 		return
 	}
-		for _, monster := range e.Monsters {
-			if monster.Name == "Yanisse" {
-				if monster.Health <= 0 {
-					e.WIN()
-					return
-				}
-			}
+for _, monster := range e.Monsters {
+	if monster.Name == "Yanisse" {
+		if monster.Health <= 0 {
+			e.WIN()
+			return
 		}
+	}
+}
 
 	rl.EndMode2D() // On finit le rendu camera
 	if e.Player.Health > 0 {
@@ -70,7 +70,7 @@ func (e *Engine) PauseRendering() {
 }
 
 func (e *Engine) GAMEOVER() {
-	rl.DrawTexture(e.LoadingScreenPause, 0, 0, rl.White)
+	rl.DrawTexture(e.LoadingScreenGameOver, 0, 0, rl.White)
 
 	rl.DrawText("GAME OVER", int32(rl.GetScreenWidth())/2-rl.MeasureText("GAME OVER", 40)/2, int32(rl.GetScreenHeight())/2-150, 80, rl.RayWhite)
 	rl.DrawText("Appuis sur [Echap] + [A]/[Q]", int32(rl.GetScreenWidth())/2-rl.MeasureText("Appuis sur [Echap] + [A]/[Q]", 20)/2, int32(rl.GetScreenHeight())/2+100, 20, rl.White)
@@ -108,7 +108,6 @@ func (e *Engine) RenderMonsters() {
 		}
 	}
 }
-
 
 func (e *Engine) RenderShopkeeper() {
 	rl.DrawTexturePro(
