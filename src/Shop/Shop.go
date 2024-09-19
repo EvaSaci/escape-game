@@ -11,7 +11,6 @@ func Shop(player *entity.Player, s *entity.Shop) {
 		if player.Money >= 50 {
 			player.Money -= 50
 			player.Health += 25
-
 		}
 	}
 }

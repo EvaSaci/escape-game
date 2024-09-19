@@ -16,8 +16,7 @@ func (e *Engine) Rendering() {
 }
 
 func (e *Engine) HomeRendering() {
-	rl.ClearBackground(rl.Purple)
-
+	rl.DrawTexture(e.LoadingScreenHome, 0, 0, rl.White)
 	rl.DrawText("Village Defend", int32(rl.GetScreenWidth())/2-rl.MeasureText("Village Defend", 40)/2, int32(rl.GetScreenHeight())/2-150, 40, rl.RayWhite)
 	rl.DrawText("[Enter] to Play", int32(rl.GetScreenWidth())/2-rl.MeasureText("[Enter] to Play", 20)/2, int32(rl.GetScreenHeight())/2, 20, rl.RayWhite)
 	rl.DrawText("[Esc] to Quit", int32(rl.GetScreenWidth())/2-rl.MeasureText("[Esc] to Quit", 20)/2, int32(rl.GetScreenHeight())/2+100, 20, rl.RayWhite)
@@ -48,8 +47,7 @@ func (e *Engine) InGameRendering() {
 	rl.EndMode2D() // On finit le rendu camera
 	if e.Player.Health > 0 {
 		// Ecriture fixe (car pas affectée par le mode camera)
-		rl.DrawText("Playing", int32(rl.GetScreenWidth())/2-rl.MeasureText("Playing", 40)/2, int32(rl.GetScreenHeight())/2-350, 40, rl.RayWhite)
-		rl.DrawText("[P] or [Esc] to Pause", int32(rl.GetScreenWidth())/2-rl.MeasureText("[P] or [Esc] to Pause", 20)/2, int32(rl.GetScreenHeight())/2-300, 20, rl.RayWhite)
+		rl.DrawText("[Echap] Pause / Tutorielle", int32(rl.GetScreenWidth())/2-rl.MeasureText("[P] or [Esc] to Pause", 20)/2+750, int32(rl.GetScreenHeight())/2-500, 20, rl.RayWhite)
 		rl.DrawText("Monnaie :", int32(rl.GetScreenWidth())/2-rl.MeasureText("Monnaie :", 20)/2-750, int32(rl.GetScreenHeight())/2-350, 35, rl.RayWhite)
 		rl.DrawText(strconv.Itoa(e.Player.Money), int32(rl.GetScreenWidth())/2+rl.MeasureText("Monnaie :", 20)/2-670, int32(rl.GetScreenHeight())/2-350, 35, rl.RayWhite)
 	}
