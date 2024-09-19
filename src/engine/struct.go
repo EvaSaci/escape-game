@@ -37,6 +37,7 @@ type Engine struct {
 	MapJSON MapJSON
 
 	LoadingScreenHome rl.Texture2D
+	LoadingScreenPause rl.Texture2D
 
 	IsRunning   bool
 	StateMenu   menu

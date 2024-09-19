@@ -8,6 +8,7 @@ func (e *Engine) Load() {
 	// Chargement des textures du personnage
 	e.Player.Sprite = rl.LoadTexture("textures/entities/soldier/Soldier-Idle.png")
 	e.LoadingScreenHome = rl.LoadTexture("textures/fond.png")
+	e.LoadingScreenPause = rl.LoadTexture("textures/pause.png")
 }
 
 func (e *Engine) Unload() {

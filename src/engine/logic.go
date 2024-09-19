@@ -93,22 +93,23 @@ func (e *Engine) shopkeepercollision() {
 func (e *Engine) MonsterCollisions() {
 	
 	for i, monster := range e.Monsters {
-		if monster.Position.X > e.Player.Position.X-40 &&
-			monster.Position.X < e.Player.Position.X+40 &&
-			monster.Position.Y > e.Player.Position.Y-40 &&
-			monster.Position.Y < e.Player.Position.Y+40 {
-				
-
-  						if monster.Health <= 0 {
-  							e.NormalTalk(monster, "Clique sur 'e' pour récupérer ta monnaie")	
-  						} else {
-							e.NormalTalk(monster, "Tu veut m'attaquer ?")
-						}
-					fight.Fight(&e.Player, &e.Monsters[i])
-				
+		if monster.Worth > 0 {
+			if monster.Position.X > e.Player.Position.X-40 &&
+				monster.Position.X < e.Player.Position.X+40 &&
+				monster.Position.Y > e.Player.Position.Y-40 &&
+				monster.Position.Y < e.Player.Position.Y+40 {
 					
-		} else {
+
+							if monster.Health <= 0 {
+								e.NormalTalk(monster, "Clique sur 'e' pour récupérer ta monnaie")	
+							} else {
+								e.NormalTalk(monster, "Tu veut m'attaquer ?")
+							}
+						fight.Fight(&e.Player, &e.Monsters[i])
+					
+						
 			}
+		}
 		}
 	}
 
