@@ -18,13 +18,9 @@ Ensuite pour vérifier si ça c'est bien installé, entrez cette commande:
 
 `go version`
 
+Ensuite on va cloner ce github sur votre ordinateur. Pour ce faire vous aller ré ouvrir votre terminal et suivre ces étapes: 
 
-
-Vidéo game made with :
-Mael
-Eva
-Yasmine
-
-Name is Village Defend with GoLang and RayLib
-
-Ynov Campus Montpellier
+* cliquez sur le bouton `code` dans l'encadrer vert sur ce gitub
+![code](https://docs.github.com/assets/cb-13128/images/help/repository/code-button.png)
+* copier l'URL
+* Dans votre terminal écrcivez `git clone` et collez l'URL
