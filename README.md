@@ -23,4 +23,6 @@ Ensuite on va cloner ce github sur votre ordinateur. Pour ce faire vous aller r�
 * cliquez sur le bouton `code` dans l'encadrer vert sur ce gitub
 ![code](https://docs.github.com/assets/cb-13128/images/help/repository/code-button.png)
 * copier l'URL
-* Dans votre terminal écrcivez `git clone` et collez l'URL
+![URL](https://docs.github.com/assets/cb-60499/images/help/repository/https-url-clone-cli.png)
+* Dans votre terminal écrivez `git clone` et collez l'URL
+
