@@ -7,7 +7,7 @@ En premier temps il va falloir installer plusieurs chose pour pouvoir commencer 
 ### Pré-Requis
 * Intaller Go
 * Vérifier si ça marche
-* 
+* Clone ce Github dans votre Bureau
 
 ### Installation
 Ouvrez votre terminal et entrez cette commande:
