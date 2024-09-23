@@ -35,6 +35,9 @@ func (engine *Engine) Run() {
 			
 			case WIN:
 				engine.WIN()
+			
+			case INV:
+				engine.INV()
 			}
 		}
 

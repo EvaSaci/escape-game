@@ -43,14 +43,17 @@ func (e *Engine) InGameRendering() {
 		e.GAMEOVER()
 		return
 	}
-for _, monster := range e.Monsters {
-	if monster.Name == "Yanisse" {
-		if monster.Health <= 0 {
-			e.WIN()
-			return
+	if rl.IsKeyDown(rl.KeyTab) {
+		e.INV()
+	}
+	for _, monster := range e.Monsters {
+		if monster.Name == "Yanisse" {
+			if monster.Health <= 0 {
+				e.WIN()
+				return
+			}
 		}
 	}
-}
 
 	rl.EndMode2D() // On finit le rendu camera
 	if e.Player.Health > 0 {
@@ -79,9 +82,14 @@ func (e *Engine) GAMEOVER() {
 func (e *Engine) WIN() {
 	rl.ClearBackground(rl.Green)
 
-    rl.DrawText("Vous avez gagné!", int32(rl.GetScreenWidth())/2-rl.MeasureText("Vous avez gagné!", 40)/2, int32(rl.GetScreenHeight())/2-150, 80, rl.RayWhite)
-    rl.DrawText("Appuis sur [Echap] + [A]/[Q]", int32(rl.GetScreenWidth())/2-rl.MeasureText("Appuis sur [Echap] + [A]/[Q]", 20)/2, int32(rl.GetScreenHeight())/2+100, 20, rl.White)
+	rl.DrawText("Vous avez gagné!", int32(rl.GetScreenWidth())/2-rl.MeasureText("Vous avez gagné!", 40)/2, int32(rl.GetScreenHeight())/2-150, 80, rl.RayWhite)
+	rl.DrawText("Appuis sur [Echap] + [A]/[Q]", int32(rl.GetScreenWidth())/2-rl.MeasureText("Appuis sur [Echap] + [A]/[Q]", 20)/2, int32(rl.GetScreenHeight())/2+100, 20, rl.White)
 }
+
+func (e *Engine) INV() {
+	rl.DrawTexture(e.inv, 1820, 750, rl.White)
+}
+
 func (e *Engine) RenderPlayer() {
 
 	rl.DrawTexturePro(
@@ -163,7 +171,6 @@ func (e *Engine) RenderHealth() {
 			} else if monster.Health > 400 {
 				monster.Health = 400
 			}
-			
 
 			rl.DrawRectangle(int32(monster.Position.X)+25, int32(monster.Position.Y)+30, int32(50), 5, rl.DarkBrown)
 			rl.DrawText(strconv.Itoa(monster.Health), int32(monster.Position.X)+25, int32(monster.Position.Y)+35, int32(3), rl.White)

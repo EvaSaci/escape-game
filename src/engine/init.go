@@ -105,7 +105,7 @@ func (e *Engine) InitEntities() {
 
 	e.Monsters = append(e.Monsters, entity.Monster{
 		Name:     "Yanisse",
-		Position: rl.Vector2{X:	464, Y: 19},
+		Position: rl.Vector2{X: 464, Y: 19},
 		Health:   300,
 		Damage:   15,
 		Speed:    0.9,
@@ -167,7 +167,7 @@ func (e *Engine) InitEntities() {
 		Sprite:  rl.LoadTexture("textures/entities/orc/antho.png"),
 	})
 
-	e.Shopkeeper =	entity.Shop{
+	e.Shopkeeper = entity.Shop{
 		Name:      "Sébastien",
 		Position:  rl.Vector2{X: 495, Y: 750},
 		Inventory: []item.Item{},
@@ -175,6 +175,7 @@ func (e *Engine) InitEntities() {
 		Sprite: rl.LoadTexture("textures/entities/shopkeeper/Shopkeeper.png"),
 	}
 }
+
 
 func (e *Engine) InitCamera() {
 	e.Camera = rl.NewCamera2D( //Camera vide, a changer dans chaque logique de scene

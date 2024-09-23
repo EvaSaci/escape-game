@@ -22,6 +22,7 @@ const (
 	PAUSE    engine = iota
 	GAMEOVER engine = iota
 	WIN		 engine = iota
+	INV		 engine = iota
 )
 
 type Engine struct {
@@ -41,6 +42,7 @@ type Engine struct {
 	LoadingScreenGameOver rl.Texture2D
 	LoadingScreenHome rl.Texture2D
 	LoadingScreenPause rl.Texture2D
+	inv        rl.Texture2D
 
 	IsRunning   bool
 	StateMenu   menu

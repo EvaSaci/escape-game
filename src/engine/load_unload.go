@@ -10,6 +10,7 @@ func (e *Engine) Load() {
 	e.LoadingScreenHome = rl.LoadTexture("textures/fond.png")
 	e.LoadingScreenPause = rl.LoadTexture("textures/pause.png")
 	e.LoadingScreenGameOver = rl.LoadTexture("textures/game-over.png")
+	e.inv = rl.LoadTexture("textures/inventory.png")
 }
 
 func (e *Engine) Unload() {
