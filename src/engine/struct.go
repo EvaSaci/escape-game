@@ -43,6 +43,7 @@ type Engine struct {
 	LoadingScreenHome rl.Texture2D
 	LoadingScreenPause rl.Texture2D
 	inv        rl.Texture2D
+	BinaryTalkingMonster *entity.Monster 
 
 	IsRunning   bool
 	StateMenu   menu

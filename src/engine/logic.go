@@ -4,6 +4,7 @@ import (
 	shop "main/src/Shop"
 	"main/src/entity"
 	"main/src/fight"
+	"strconv"
 
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
@@ -107,14 +108,22 @@ func (e *Engine) MonsterCollisions() {
 							}
 						fight.Fight(&e.Player, &e.Monsters[i])
 					
-						
+						if monster.Name == "mael" {
+							e.RobotTalk(monster, "Tu veux m'attaquer?")
+						}
+						if monster.Name == "yas" {
+							e.CipherTalk(monster, "Tu veux m'attaquer!")
+
+						}
+		
 			}
 		}
-		}
 	}
+}
 
 func (e *Engine) NormalTalk(m entity.Monster, sentence string) {
 	e.RenderDialog(m, sentence)
+
 }
 func (e *Engine) NormalTalke(s entity.Shop, sentence string) {
 	e.RenderDialoge(s, sentence)
@@ -147,4 +156,31 @@ func (e *Engine) UpdateMonsters() {
 			}
 		}
 	}
+}
+func (e *Engine) RobotTalk(m entity.Monster, sentence string) {
+	var str2 string
+	var l string
+	for _, char := range sentence {
+		x := int(char)
+		l = ""
+		for x/2 != 0 {
+			r := x % 2
+			l = strconv.Itoa(r) + l
+			x = x / 2
+		}			
+		l = "1" + l
+		for len(l) < 8 {
+			l = "0" + l
+		}
+		str2 = str2 + l
+	}
+	e.RenderDialog(m, str2)
+}
+func (e *Engine) CipherTalk(m entity.Monster, sentence string) {
+	var str2 string
+	for _, char := range sentence {
+		char = char + 2
+		str2 = str2 + string(char) 
+	}
+    e.RenderDialog(m, sentence)
 }
