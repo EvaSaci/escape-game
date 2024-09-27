@@ -80,42 +80,39 @@ func (e *Engine) CheckCollisions() {
 	e.shopkeepercollision()
 }
 func (e *Engine) shopkeepercollision() {
-		if e.Shopkeeper.Position.X > e.Player.Position.X-50 &&
-			e.Shopkeeper.Position.X < e.Player.Position.X+50 &&
-			e.Shopkeeper.Position.Y > e.Player.Position.Y-50 &&
-			e.Shopkeeper.Position.Y < e.Player.Position.Y+50 {
-				e.NormalTalke(e.Shopkeeper, "Je suis le shop du village!")
-				shop.Shop(&e.Player, &e.Shopkeeper)
-		} else {
-		}
+	if e.Shopkeeper.Position.X > e.Player.Position.X-50 &&
+		e.Shopkeeper.Position.X < e.Player.Position.X+50 &&
+		e.Shopkeeper.Position.Y > e.Player.Position.Y-50 &&
+		e.Shopkeeper.Position.Y < e.Player.Position.Y+50 {
+		e.NormalTalke(e.Shopkeeper, "Je suis le shop du village!")
+		shop.Shop(&e.Player, &e.Shopkeeper)
+	} else {
 	}
-
+}
 
 func (e *Engine) MonsterCollisions() {
-	
+
 	for i, monster := range e.Monsters {
 		if monster.Worth > 0 {
 			if monster.Position.X > e.Player.Position.X-40 &&
 				monster.Position.X < e.Player.Position.X+40 &&
 				monster.Position.Y > e.Player.Position.Y-40 &&
 				monster.Position.Y < e.Player.Position.Y+40 {
-					
 
-							if monster.Health <= 0 {
-								e.NormalTalk(monster, "Clique sur 'e' pour récupérer ta monnaie")	
-							} else {
-								e.NormalTalk(monster, "Tu veut m'attaquer ?")
-							}
-						fight.Fight(&e.Player, &e.Monsters[i])
-					
-						if monster.Name == "mael" {
-							e.RobotTalk(monster, "Tu veux m'attaquer?")
-						}
-						if monster.Name == "yas" {
-							e.CipherTalk(monster, "Tu veux m'attaquer!")
+				if monster.Health <= 0 {
+					e.NormalTalk(monster, "Clique sur 'e' pour récupérer ta monnaie")
+				} else {
+					e.NormalTalk(monster, "Tu veut m'attaquer ?")
+				}
+				fight.Fight(&e.Player, &e.Monsters[i])
 
-						}
-		
+				if monster.Name == "mael" {
+					e.RobotTalk(monster, "Tu veux m'attaquer?")
+				}
+				if monster.Name == "eva" {
+					e.CipherTalk(monster, "Tu veux m'attaquer?")
+				}
+
 			}
 		}
 	}
@@ -144,7 +141,7 @@ func (e *Engine) PauseLogic() {
 }
 func (e *Engine) UpdateMonsters() {
 
-	for i := 0; i < len(e.Monsters); i++ { 
+	for i := 0; i < len(e.Monsters); i++ {
 
 		if e.Monsters[i].IsAlive {
 			distance := rl.Vector2Distance(e.Player.Position, e.Monsters[i].Position)
@@ -167,7 +164,7 @@ func (e *Engine) RobotTalk(m entity.Monster, sentence string) {
 			r := x % 2
 			l = strconv.Itoa(r) + l
 			x = x / 2
-		}			
+		}
 		l = "1" + l
 		for len(l) < 8 {
 			l = "0" + l
@@ -176,11 +173,12 @@ func (e *Engine) RobotTalk(m entity.Monster, sentence string) {
 	}
 	e.RenderDialog(m, str2)
 }
+
 func (e *Engine) CipherTalk(m entity.Monster, sentence string) {
 	var str2 string
 	for _, char := range sentence {
 		char = char + 2
-		str2 = str2 + string(char) 
+		str2 = str2 + string(char)
 	}
-    e.RenderDialog(m, sentence)
+	e.RenderDialog(m, str2)
 }

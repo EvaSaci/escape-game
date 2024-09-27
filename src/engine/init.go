@@ -3,6 +3,9 @@ package engine
 import (
 	"main/src/entity"
 	"main/src/item"
+	"flag"
+	"fmt"
+	"os"
 
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
@@ -25,6 +28,15 @@ func (e *Engine) Init() {
 	e.InitMusic()
 	e.InitMap("textures/map/tilesets/map.json")
 
+	help := flag.Bool("h", false, "Tu auras un tuto directement dans le jeu arrêde de vouloir faire l'ancien là à faire un -h. \nFaudra juste appuyer sur escape mais bon c'est marquer dans le jeu en vrai")
+	flag.Parse()
+	if *help {
+
+		fmt.Println("usage of", os.Args[0] + " -h")
+		flag.PrintDefaults()
+		os.Exit(0)
+
+	}
 }
 
 func (e *Engine) InitEntities() {
